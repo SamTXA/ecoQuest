@@ -408,6 +408,14 @@ button:active{
 /* hr */
 /* ================================================= */
 
+.version{
+    margin-top:-20px;
+    margin-bottom:25px;
+    font-size:16px;
+    color:#5f7f9c;
+    font-weight:bold;
+}
+
 hr{
 
     width:75%;
