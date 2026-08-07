@@ -1,0 +1,425 @@
+/* ================================================== */
+/* ecoQuest */
+/* style.css */
+/* again, do not touch ANYTHING unless u kno about ts */
+/* ================================================== */
+
+body{
+
+    margin:0;
+
+    padding:25px;
+
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    text-align:center;
+
+    color:#23405c;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #eaf7ff 0%,
+        #cfeaff 40%,
+        #b7dcff 100%
+    );
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+body{
+
+    text-transform: lowercase;
+
+}
+
+/* ================================================ */
+/* Animated Clouds */
+/* ================================================ */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:60px;
+
+    left:-500px;
+
+    width:350px;
+
+    height:110px;
+
+    background:white;
+
+    border-radius:100px;
+
+    opacity:.35;
+
+    filter:blur(2px);
+
+    box-shadow:
+        70px -20px 0 10px white,
+        145px 10px 0 20px white,
+        235px -15px 0 5px white;
+
+    animation:cloud1 90s linear infinite;
+
+    z-index:-1;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    top:180px;
+
+    left:-650px;
+
+    width:280px;
+
+    height:90px;
+
+    background:white;
+
+    border-radius:100px;
+
+    opacity:.28;
+
+    filter:blur(3px);
+
+    box-shadow:
+        60px -15px 0 8px white,
+        135px 5px 0 15px white,
+        205px -10px 0 8px white;
+
+    animation:cloud2 120s linear infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes cloud1{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(calc(100vw + 900px));
+
+    }
+
+}
+
+@keyframes cloud2{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(calc(100vw + 1100px));
+
+    }
+
+}
+
+/* ================================================= */
+/* title */
+/* ================================================= */
+
+h1{
+
+    color:#264d73;
+
+    font-size:42px;
+
+    margin-bottom:25px;
+
+}
+
+/* ================================================= */
+/* stat cards */
+/* ================================================= */
+
+#stats{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.card{
+
+    width:145px;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.55);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+    padding:15px;
+
+}
+
+.card h3{
+
+    margin:5px;
+
+    font-size:18px;
+
+}
+
+.card p{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+/* ================================================= */
+/* toolbar */
+/* ================================================= */
+
+#toolbar{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-bottom:25px;
+
+}
+
+/* ================================================= */
+/* buttons */
+/* ================================================= */
+
+button{
+
+    width:145px;
+
+    height:125px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        #84bbf5,
+        #619ee8
+    );
+
+    font-size:18px;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:
+    linear-gradient(
+        #9dcaf8,
+        #73adef
+    );
+
+}
+
+button:active{
+
+    transform:translateY(0);
+
+}
+
+#eraseBtn{
+
+    background:
+    linear-gradient(
+        #ef7777,
+        #db5555
+    );
+
+}
+
+#eraseBtn:hover{
+
+    background:
+    linear-gradient(
+        #ff9393,
+        #ea6d6d
+    );
+
+}
+
+/* ================================================= */
+/* grid */
+/* ================================================= */
+
+#grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(8,70px);
+
+    gap:5px;
+
+    justify-content:center;
+
+    margin-top:30px;
+
+}
+
+.tile{
+
+    width:60px;
+
+    height:60px;
+
+    background:#f2faff;
+
+    border:2px solid #8bb8e6;
+
+    border-radius:10px;
+
+    font-size:34px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+}
+
+.tile:hover{
+
+    background:#d9eeff;
+
+    transform:scale(1.05);
+
+}
+
+/* ================================================= */
+/* music */
+/* ================================================= */
+
+#musicBox{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:20px;
+
+    width:250px;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    text-align:left;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+}
+
+#songName{
+
+    color:#2b6cb2;
+
+    font-weight:bold;
+
+}
+
+#musicBox button{
+
+    width:55px;
+
+    height:38px;
+
+    font-size:18px;
+
+    margin:2px;
+
+}
+
+#volume{
+
+    width:160px;
+
+}
+
+/* ================================================= */
+/* walking citizens (SCRAPPED, BUGGY CODE) */
+/* ================================================= */
+
+/* ================================================= */
+/* hr */
+/* ================================================= */
+
+hr{
+
+    width:75%;
+
+    border:none;
+
+    height:2px;
+
+    background:#86b4df;
+
+    margin-top:25px;
+
+    margin-bottom:25px;
+
+}

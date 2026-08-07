@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ecoQuest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>ecoQuest : town building simulator</h1>
+
+    <div id="stats">
+
+        <div class="card">
+            <h3>money</h3>
+            <p id="money">1000</p>
+        </div>
+
+        <div class="card">
+            <h3>population</h3>
+            <p id="population">0</p>
+        </div>
+
+        <div class="card">
+            <h3>income</h3>
+            <p id="income">0</p>
+        </div>
+
+        <div class="card">
+            <h3>pollution</h3>
+            <p id="pollution">0</p>
+        </div>
+
+        <div class="card">
+            <h3>happiness</h3>
+            <p id="happy">50</p>
+        </div>
+
+        <div class="card">
+            <h3>turns</h3>
+            <p id="turns">0 / 20</p>
+        </div>
+
+    </div>
+
+    <div id="toolbar">
+
+        <button id="houseBtn">
+            🏠 house
+            <br>
+            cost: 100
+            <br>
+            income: +15
+            <br>
+            population: +5
+            <br>
+            pollution: +2
+        </button>
+
+        <button id="parkBtn">
+            🌳 park
+            <br>
+            cost: 75
+            <br>
+            income: +0
+            <br>
+            population: +0
+            <br>
+            pollution: -5
+        </button>
+
+        <button id="factoryBtn">
+            🏭 factory
+            <br>
+            cost: 300
+            <br>
+            income: +40
+            <br>
+            population: +2
+            <br>
+            pollution: +15
+        </button>
+
+        <button id="solarBtn">
+            ☀️ solar farm
+            <br>
+            cost: 250
+            <br>
+            income: +20
+            <br>
+            population: +1
+            <br>
+            pollution: -10
+        </button>
+
+        <button id="eraseBtn">
+            erase
+            <br>
+            refund: 100%
+        </button>
+
+    </div>
+
+    <hr>
+
+    <div id="grid"></div>
+
+    <div id="musicBox">
+
+        <strong>now playing</strong>
+
+        <br>
+
+        <span id="songName">
+            click anywhere to start music
+        </span>
+
+        <br><br>
+
+        <button id="prevSong">◀◀</button>
+        <button id="pauseSong">⏸</button>
+        <button id="nextSong">▶▶</button>
+
+        <br><br>
+
+        volume
+
+        <br>
+
+        <input
+            type="range"
+            id="volume"
+            min="0"
+            max="100"
+            value="40">
+
+    </div>
+
+    <audio id="bgm"></audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
