@@ -197,7 +197,7 @@ function updateStats(){
 
     document.getElementById("happy").textContent=happiness;
 
-    document.getElementById("turns").textContent=turns+" / 20";
+    document.getElementById("turns").textContent=turns+" / 32";
 
 }
 
@@ -345,7 +345,7 @@ for(let i=0;i<32;i++){
 
         updateStats();
 
-        if(turns>=20){
+        if(turns>=32){
 
             endGame();
 
