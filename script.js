@@ -197,7 +197,7 @@ function updateStats(){
 
     document.getElementById("happy").textContent=happiness;
 
-    document.getElementById("turns").textContent=turns+" / 32";
+    document.getElementById("turns").textContent=turns+" / 33";
 
 }
 
