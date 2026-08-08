@@ -431,3 +431,85 @@ hr{
     margin-bottom:25px;
 
 }
+
+/* ================================================= */
+/* mobile */
+/* ================================================= */
+
+@media (max-width:600px){
+
+    body{
+        padding:15px;
+    }
+
+    h1{
+        font-size:30px;
+        margin-bottom:20px;
+    }
+
+    #stats{
+        gap:10px;
+    }
+
+    .card{
+        width:120px;
+        padding:10px;
+    }
+
+    .card h3{
+        font-size:16px;
+    }
+
+    .card p{
+        font-size:24px;
+    }
+
+    #toolbar{
+        gap:10px;
+    }
+
+    #toolbar button{
+        width:140px;
+        height:115px;
+        font-size:16px;
+    }
+
+    #grid{
+        grid-template-columns:repeat(4,60px);
+        gap:5px;
+        width:max-content;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .tile{
+        width:56px;
+        height:56px;
+        font-size:30px;
+    }
+
+    #musicBox{
+        position:relative;
+        left:auto;
+        bottom:auto;
+        width:auto;
+        max-width:calc(100% - 30px);
+        margin:30px auto 10px auto;
+        text-align:center;
+    }
+
+    #musicBox button{
+        width:65px;
+        height:42px;
+    }
+
+    #volume{
+        width:70%;
+        max-width:220px;
+    }
+
+    hr{
+        width:85%;
+    }
+
+}
