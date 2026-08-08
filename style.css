@@ -512,4 +512,18 @@ hr{
         width:85%;
     }
 
+    #discord{
+    margin:30px auto;
+    font-size:18px;
+    font-weight:bold;
+}
+
+#discord a{
+    color:#5865f2;
+    text-decoration:none;
+}
+
+#discord a:hover{
+    text-decoration:underline;
+}
 }
