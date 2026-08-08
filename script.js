@@ -345,7 +345,7 @@ for(let i=0;i<32;i++){
 
         updateStats();
 
-        if(turns>=32){
+        if(turns>=33){
 
             endGame();
 
