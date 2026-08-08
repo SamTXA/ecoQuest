@@ -511,8 +511,9 @@ hr{
     hr{
         width:85%;
     }
+}
 
-    #discord{
+#discord{
     margin:30px auto;
     font-size:18px;
     font-weight:bold;
@@ -526,4 +527,3 @@ hr{
 #discord a:hover{
     text-decoration:underline;
 }
-
