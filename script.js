@@ -79,7 +79,7 @@ function updateStats(){
 
     document.getElementById("happy").textContent=happiness;
 
-    document.getElementById("turns").textContent=turns+" / 33";
+    document.getElementById("turns").textContent=turns+" / 32";
 
 }
 
@@ -227,7 +227,7 @@ for(let i=0;i<32;i++){
 
         updateStats();
 
-        if(turns>=33){
+        if(turns>=32){
 
             endGame();
 
@@ -303,7 +303,7 @@ pollution: ${pollution}
 
 happiness: ${happiness}
 
-turns: ${turns}/20
+turns: ${turns}/32
 
 rating: ${rating}`);
 
