@@ -1172,8 +1172,8 @@ function createCar() {
       Math.random(),
 
     speed:
-      0.000035 +
-      Math.random() * 0.00002,
+      0.000012 +
+      Math.random() * 0.00006,
 
     lane:
       Math.random() < 0.5
