@@ -326,7 +326,7 @@ select {
 
 /* individual tile */
 
-.city-tile {
+.tile {
   position: relative;
 
   min-width: 0;
@@ -414,7 +414,7 @@ select {
 
 /* cars */
 
-.car {
+.city-car {
   position: absolute !important;
 
   /*
