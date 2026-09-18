@@ -2,168 +2,366 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f7">
   <title>ecoquest</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div id="app">
 
-    <section id="title-screen" class="screen" aria-label="ecoquest title screen">
-      <div class="cover">
-        <div class="cover-copy">
-          <div class="eyebrow">environmental city simulator</div>
-          <h1>ecoquest</h1>
-          <p id="cover-description">build a city, manage its environment, and keep your citizens happy.</p>
-          <div class="cover-actions">
-            <button id="start-btn" class="umg-button primary">start</button>
-            <button id="cover-options-btn" class="umg-button secondary">options</button>
-          </div>
-          <div class="version">alpha 0.3</div>
+<div id="app">
+
+  <!-- title screen -->
+  <section id="title-screen" class="screen">
+
+    <div class="cover">
+
+      <div class="cover-copy">
+        <div class="eyebrow">
+          environmental city simulator
         </div>
 
-        <div class="cover-art">
-          <img src="assets/NYC.jpg" alt="new york city skyline in 1998">
-          <div class="art-caption">NYC, January 2001. Image Source = Aditya Andreanto</div>
+        <h1>ecoquest</h1>
+
+        <p id="cover-description">
+          build a city, manage its environment, and keep your citizens happy.
+        </p>
+
+        <div class="cover-actions">
+          <button id="start-btn" class="umg-button primary">
+            start
+          </button>
+
+          <button id="cover-options-btn" class="umg-button secondary">
+            options
+          </button>
         </div>
-      </div>
-    </section>
 
-    <section id="options-screen" class="screen is-hidden" aria-label="options">
-      <div class="options-page">
-        <button id="options-back" class="text-button">‹ back</button>
-        <h2 id="options-title">options</h2>
-
-        <div class="settings-card">
-          <div class="setting-row">
-            <div>
-              <b id="language-label">language</b>
-              <span id="language-help">choose your language</span>
-            </div>
-            <select id="language-select">
-              <option value="en">english</option>
-              <option value="id">indonesian</option>
-            </select>
-          </div>
-
-          <div class="setting-row">
-            <div>
-              <b id="theme-label">appearance</b>
-              <span id="theme-help">choose light or dark mode</span>
-            </div>
-            <select id="theme-select">
-              <option value="light">light</option>
-              <option value="dark">dark</option>
-            </select>
-          </div>
+        <div class="version">
+          alpha 0.4
         </div>
       </div>
-    </section>
 
-    <section id="game-screen" class="is-hidden" aria-label="game">
-      <header class="gamebar">
-        <div class="brand">
-          <b>ecoquest</b>
-          <span id="turn-label">turn 0</span>
+      <div class="cover-art">
+        <img
+          src="assets/NYC.jpg"
+          alt="new york city skyline"
+        >
+
+        <div class="art-caption">
+          Photo by Aditya Andreanto, Jan 2001
         </div>
-        <div class="gamebar-actions">
-          <button id="game-options-btn" class="round-button" aria-label="options">⚙</button>
-          <button id="restart-btn" class="umg-button small secondary">restart</button>
-        </div>
-      </header>
+      </div>
 
-      <main class="game">
-        <aside class="sidebar">
-          <section class="umg-card stats-card">
-            <div class="card-title" id="stats-title">city statistics</div>
+    </div>
 
-            <div class="stat-row">
-              <span id="money-label">money</span>
-              <b id="money">$1,000</b>
-            </div>
-            <div class="progress"><i id="money-fill"></i></div>
+  </section>
 
-            <div class="stat-row">
-              <span id="population-label">population</span>
-              <b id="population">0</b>
-            </div>
 
-            <div class="stat-row">
-              <span id="income-label">income / turn</span>
-              <b id="income">$0</b>
-            </div>
+  <!-- options -->
+  <section id="options-screen" class="screen is-hidden">
 
-            <div class="stat-row">
-              <span id="pollution-label">pollution</span>
-              <b id="pollution">0</b>
-            </div>
-            <div class="progress pollution"><i id="pollution-fill"></i></div>
+    <div class="options-page">
 
-            <div class="stat-row">
-              <span id="happiness-label">happiness</span>
-              <b id="happiness">50</b>
-            </div>
-            <div class="progress happiness"><i id="happiness-fill"></i></div>
-          </section>
+      <button id="options-back" class="text-button">
+        ‹ back
+      </button>
 
-          <section class="umg-card objective">
-            <div class="card-title" id="objective-title">objective</div>
-            <p id="objective-text">grow your city while keeping pollution under control.</p>
-          </section>
-        </aside>
+      <h2 id="options-title">
+        options
+      </h2>
 
-        <section class="city-area">
-          <div class="city-heading">
-            <div>
-              <h2 id="city-name">your city</h2>
-              <span id="city-help">select a building, then click a tile.</span>
-            </div>
-            <button id="next-turn-btn" class="umg-button primary">next turn</button>
+      <div class="settings-card">
+
+        <div class="setting-row">
+          <div>
+            <b id="language-label">language</b>
+            <span id="language-help">
+              choose your language
+            </span>
           </div>
 
-          <div id="city-grid" class="city-grid" aria-label="city map"></div>
-          <div id="message" class="message" aria-live="polite"></div>
+          <select id="language-select">
+            <option value="en">english</option>
+            <option value="id">indonesian</option>
+          </select>
+        </div>
+
+
+        <div class="setting-row">
+          <div>
+            <b id="theme-label">appearance</b>
+            <span id="theme-help">
+              choose light or dark mode
+            </span>
+          </div>
+
+          <select id="theme-select">
+            <option value="light">light</option>
+            <option value="dark">dark</option>
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- game -->
+  <section id="game-screen" class="is-hidden">
+
+    <header class="gamebar">
+
+      <div class="brand">
+        <b>ecoquest</b>
+        <span id="turn-label">turn 0</span>
+      </div>
+
+      <div class="gamebar-actions">
+
+        <button
+          id="game-options-btn"
+          class="round-button"
+          aria-label="options"
+        >
+          ⚙
+        </button>
+
+        <button
+          id="restart-btn"
+          class="umg-button small secondary"
+        >
+          restart
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <main class="game">
+
+      <!-- left sidebar -->
+      <aside class="sidebar">
+
+        <section class="umg-card stats-card">
+
+          <div class="card-title" id="stats-title">
+            city statistics
+          </div>
+
+          <div class="stat-row">
+            <span id="money-label">money</span>
+            <b id="money">$1,000</b>
+          </div>
+
+          <div class="progress">
+            <i id="money-fill"></i>
+          </div>
+
+
+          <div class="stat-row">
+            <span id="population-label">population</span>
+            <b id="population">0</b>
+          </div>
+
+
+          <div class="stat-row">
+            <span id="income-label">income / turn</span>
+            <b id="income">$0</b>
+          </div>
+
+
+          <div class="stat-row">
+            <span id="pollution-label">pollution</span>
+            <b id="pollution">0</b>
+          </div>
+
+          <div class="progress">
+            <i id="pollution-fill"></i>
+          </div>
+
+
+          <div class="stat-row">
+            <span id="happiness-label">happiness</span>
+            <b id="happiness">50</b>
+          </div>
+
+          <div class="progress">
+            <i id="happiness-fill"></i>
+          </div>
+
         </section>
 
-        <aside class="build-panel">
-          <section class="umg-card">
-            <div class="card-title" id="build-title">build</div>
 
-            <div class="build-list">
-              <button class="build-item" data-building="house">
-                <img src="house.png" alt="">
-                <span><b id="house-name">house</b><em id="house-cost">$100</em><small id="house-info">+5 population · +15 income</small></span>
-              </button>
+        <section class="umg-card objective">
 
-              <button class="build-item" data-building="tree">
-                <img src="tree.png" alt="">
-                <span><b id="tree-name">tree</b><em id="tree-cost">$75</em><small id="tree-info">−5 pollution · +10 happiness</small></span>
-              </button>
+          <div class="card-title" id="objective-title">
+            objective
+          </div>
 
-              <button class="build-item" data-building="factory">
-                <img src="factory.png" alt="">
-                <span><b id="factory-name">factory</b><em id="factory-cost">$300</em><small id="factory-info">+2 population · +40 income</small></span>
-              </button>
+          <p id="objective-text">
+            reach 50 population while keeping pollution under control.
+          </p>
 
-              <button class="build-item" data-building="solar">
-                <img src="solar.png" alt="">
-                <span><b id="solar-name">solar plant</b><em id="solar-cost">$250</em><small id="solar-info">−10 pollution · +8 happiness</small></span>
-              </button>
+        </section>
 
-              <button class="build-item" data-building="road">
-                <img src="road.png" alt="">
-                <span><b id="road-name">road</b><em id="road-cost">$50</em><small id="road-info">connect your city</small></span>
-              </button>
-            </div>
+      </aside>
 
-            <button id="erase-btn" class="danger-button">erase building</button>
-          </section>
-        </aside>
-      </main>
-    </section>
-  </div>
 
-  <script src="script.js"></script>
+      <!-- city -->
+      <section class="city-area">
+
+        <div class="city-heading">
+
+          <div>
+            <h2 id="city-name">
+              your city
+            </h2>
+
+            <span id="city-help">
+              select a building, then click a tile.
+            </span>
+          </div>
+
+          <button
+            id="next-turn-btn"
+            class="umg-button primary"
+          >
+            next turn
+          </button>
+
+        </div>
+
+
+        <div
+          id="city-grid"
+          class="city-grid"
+          aria-label="city map"
+        ></div>
+
+
+        <div
+          id="message"
+          class="message"
+          aria-live="polite"
+        ></div>
+
+      </section>
+
+
+      <!-- build panel -->
+      <aside class="build-panel">
+
+        <section class="umg-card">
+
+          <div class="card-title" id="build-title">
+            build
+          </div>
+
+
+          <div class="build-list">
+
+            <button
+              class="build-item"
+              data-building="house"
+            >
+              <span>
+                <b id="house-name">house</b>
+                <em id="house-cost">$100</em>
+                <small id="house-info">
+                  +5 population · +15 income
+                </small>
+              </span>
+            </button>
+
+
+            <button
+              class="build-item"
+              data-building="tree"
+            >
+              <span>
+                <b id="tree-name">tree</b>
+                <em id="tree-cost">$75</em>
+                <small id="tree-info">
+                  −5 pollution · +10 happiness
+                </small>
+              </span>
+            </button>
+
+
+            <button
+              class="build-item"
+              data-building="factory"
+            >
+              <span>
+                <b id="factory-name">factory</b>
+                <em id="factory-cost">$300</em>
+                <small id="factory-info">
+                  +2 population · +40 income
+                </small>
+              </span>
+            </button>
+
+
+            <button
+              class="build-item"
+              data-building="solar"
+            >
+              <span>
+                <b id="solar-name">solar plant</b>
+                <em id="solar-cost">$250</em>
+                <small id="solar-info">
+                  −10 pollution · +8 happiness
+                </small>
+              </span>
+            </button>
+
+
+            <button
+              class="build-item"
+              data-building="road"
+            >
+              <span>
+                <b id="road-name">road</b>
+                <em id="road-cost">$50</em>
+                <small id="road-info">
+                  connect your city
+                </small>
+              </span>
+            </button>
+
+          </div>
+
+
+          <button
+            id="erase-btn"
+            class="danger-button"
+          >
+            erase building
+          </button>
+
+          <div class="controls-help">
+            <b>controls</b>
+            <span>r · rotate building</span>
+            <span>e · erase mode</span>
+            <span>1–5 · select building</span>
+          </div>
+
+        </section>
+
+      </aside>
+
+    </main>
+
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
