@@ -1123,3 +1123,177 @@ select {
     width: 100%;
   }
 }
+/* =========================
+   ecoquest start screen
+========================= */
+
+#title-screen {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 255, 0.65),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      var(--bg),
+      var(--bg2)
+    );
+}
+
+.start-menu {
+  width: min(620px, 100%);
+
+  padding: 55px 50px 35px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--panel),
+      var(--panel-dark)
+    );
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(20, 100, 160, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* glossy top section */
+
+.start-menu::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--blue-dark),
+      var(--blue-light),
+      var(--blue-dark)
+    );
+}
+
+/* logo */
+
+.start-logo h1 {
+  margin: 0;
+
+  color: var(--blue-dark);
+
+  font-size:
+    clamp(60px, 10vw, 96px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 750;
+
+  text-shadow:
+    0 2px 0 white,
+    0 4px 10px rgba(0, 80, 150, 0.15);
+}
+
+.start-logo p {
+  margin:
+    13px
+    0
+    0;
+
+  color: var(--muted);
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+}
+
+/* buttons */
+
+.start-menu-buttons {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 38px;
+}
+
+.start-menu-buttons button {
+  width: 210px;
+
+  min-height: 45px;
+
+  font-size: 15px;
+}
+
+/* version */
+
+.start-version {
+  margin-top: 35px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  opacity: 0.75;
+}
+
+@media (max-width: 520px) {
+  #title-screen {
+    padding: 15px;
+  }
+
+  .start-menu {
+    padding:
+      45px
+      25px
+      28px;
+
+    border-radius: 19px;
+  }
+
+  .start-logo h1 {
+    font-size: 64px;
+
+    letter-spacing: -4px;
+  }
+
+  .start-menu-buttons {
+    margin-top: 30px;
+  }
+
+  .start-menu-buttons button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
