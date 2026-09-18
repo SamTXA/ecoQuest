@@ -1,1 +1,712 @@
-a
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f2f2f7;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --border: #d2d2d7;
+  --accent: #0071e3;
+  --danger: #d70015;
+}
+
+body.dark {
+  --bg: #1c1c1e;
+  --surface: #2c2c2e;
+  --surface-2: #3a3a3c;
+  --text: #f5f5f7;
+  --muted: #98989f;
+  --border: #48484a;
+  --accent: #0a84ff;
+  --danger: #ff453a;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================
+   screens
+========================= */
+
+.screen {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+/* =========================
+   title screen
+========================= */
+
+#title-screen {
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.title-layout {
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.title-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title-left h1 {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 90px);
+  line-height: 0.9;
+  letter-spacing: -4px;
+}
+
+.title-left button {
+  width: 180px;
+}
+
+.title-right {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.title-right img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.title-caption {
+  margin: 9px 4px 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================
+   buttons
+========================= */
+
+button,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 20px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   options
+========================= */
+
+#options-screen {
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.options-card {
+  width: min(500px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.options-card h2 {
+  margin-top: 0;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.option-row:last-of-type {
+  border-bottom: 0;
+}
+
+select {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 12px;
+}
+
+/* =========================
+   game
+========================= */
+
+#game-screen {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 14px;
+}
+
+#game-screen.is-hidden {
+  display: none !important;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.game-header .turn {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   main layout
+========================= */
+
+.game-layout {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 220px;
+  gap: 18px;
+
+  align-items: start;
+}
+
+/* =========================
+   side panels
+========================= */
+
+.sidebar,
+.build-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.sidebar h2,
+.build-panel h2 {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.stat {
+  margin-bottom: 15px;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.stat-value {
+  font-weight: 600;
+}
+
+.stat-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 4px;
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: inherit;
+}
+
+.objective {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.objective p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* =========================
+   city section
+========================= */
+
+.city-section {
+  min-width: 0;
+}
+
+.city-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.city-section-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.city-section-header p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================
+   city grid
+========================= */
+
+.city-grid {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 8 / 5;
+
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: #ccc;
+}
+
+/* =========================
+   individual tile
+========================= */
+
+.tile {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 0;
+
+  background: transparent;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* =========================
+   terrain
+========================= */
+
+.terrain-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 1;
+}
+
+/* =========================
+   buildings
+========================= */
+
+.building-image {
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 50% !important;
+
+  width: 82% !important;
+  height: 82% !important;
+
+  max-width: 82% !important;
+  max-height: 82% !important;
+
+  object-fit: contain !important;
+
+  display: block;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 3;
+}
+
+/* =========================
+   road
+========================= */
+
+.building-image[src*="road.png"] {
+  position: absolute !important;
+
+  left: 0 !important;
+  top: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  object-fit: fill !important;
+
+  transform: none !important;
+
+  z-index: 2;
+}
+
+/* kept for compatibility if road-image is ever used */
+
+.road-image {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  object-fit: fill !important;
+
+  display: block;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* =========================
+   cars
+========================= */
+
+.city-car {
+  position: absolute !important;
+
+  /*
+    8% of the entire grid width.
+    since the grid is 8 tiles wide,
+    this is approximately one tile width.
+  */
+
+  width: 8% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+
+  display: block;
+
+  z-index: 10;
+
+  pointer-events: none;
+  user-select: none;
+
+  transform-origin: center center;
+}
+
+/* =========================
+   build panel
+========================= */
+
+.build-item {
+  width: 100%;
+
+  background: transparent;
+  color: var(--text);
+
+  text-align: left;
+
+  padding: 11px 10px;
+
+  border-radius: 11px;
+
+  margin-bottom: 4px;
+
+  transition:
+    background 0.15s ease,
+    outline 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.build-item:hover {
+  background: var(--surface-2);
+}
+
+.build-item.active {
+  background: var(--surface-2);
+  outline: 2px solid var(--accent);
+}
+
+.build-item.disabled {
+  opacity: 0.45;
+}
+
+.build-name {
+  display: block;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.build-cost {
+  display: block;
+
+  color: var(--accent);
+
+  font-size: 13px;
+
+  margin-top: 3px;
+}
+
+.build-info {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  margin-top: 3px;
+}
+
+/* =========================
+   erase
+========================= */
+
+.erase-btn {
+  width: 100%;
+
+  margin-top: 8px;
+
+  background: transparent;
+  color: var(--danger);
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  padding: 10px;
+}
+
+.erase-btn:hover {
+  background: var(--surface-2);
+}
+
+.erase-btn.active {
+  background: var(--surface-2);
+  border-color: var(--danger);
+}
+
+/* =========================
+   controls
+========================= */
+
+.controls {
+  margin-top: 15px;
+  padding-top: 15px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================
+   messages
+========================= */
+
+.game-message {
+  min-height: 20px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.warning {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* =========================
+   responsive
+========================= */
+
+@media (max-width: 1000px) {
+  .game-layout {
+    grid-template-columns:
+      180px
+      minmax(0, 1fr)
+      180px;
+
+    gap: 12px;
+  }
+
+  .sidebar,
+  .build-panel {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  #title-screen,
+  #options-screen {
+    padding: 20px;
+  }
+
+  .title-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .title-right {
+    max-width: 600px;
+  }
+
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .build-panel {
+    width: 100%;
+  }
+
+  .city-section {
+    order: -1;
+  }
+
+  .city-grid {
+    width: 100%;
+  }
+
+  .game-header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 450px) {
+  #game-screen {
+    padding: 9px;
+    gap: 10px;
+  }
+
+  .city-grid {
+    border-radius: 10px;
+  }
+
+  .city-section-header h2 {
+    font-size: 18px;
+  }
+
+  .city-section-header p {
+    font-size: 11px;
+  }
+
+  .game-layout {
+    gap: 10px;
+  }
+
+  .sidebar,
+  .build-panel {
+    border-radius: 12px;
+    padding: 11px;
+  }
+
+  .title-left h1 {
+    letter-spacing: -3px;
+  }
+}
