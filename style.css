@@ -1297,3 +1297,75 @@ select {
     max-width: 250px;
   }
 }
+/* =========================
+   dark mode fixes
+========================= */
+
+body.dark #title-screen {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(78, 181, 255, 0.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      var(--bg),
+      var(--bg2)
+    );
+}
+
+body.dark .start-menu {
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.dark .start-logo h1 {
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .title-right {
+  background:
+    linear-gradient(
+      180deg,
+      var(--panel),
+      var(--panel-dark)
+    );
+}
+
+body.dark .secondary-btn {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .build-item,
+body.dark .build-option {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.03)
+    );
+
+  border-color: var(--border);
+}
+
+body.dark .build-item:hover,
+body.dark .build-option:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.14),
+      rgba(255,255,255,0.06)
+    );
+}
+
+body.dark .primary-btn {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 3px 7px rgba(0, 0, 0, 0.3);
+}
