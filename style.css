@@ -34,23 +34,32 @@ body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-    "SF Pro Text", "Segoe UI", sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Segoe UI",
+    sans-serif;
 }
 
-/* screens */
+/* =========================
+   screens
+========================= */
 
 .screen {
-  display: none;
+  display: flex;
   width: 100%;
   min-height: 100vh;
 }
 
-.screen.active {
-  display: flex;
+.is-hidden {
+  display: none !important;
 }
 
-/* title screen */
+/* =========================
+   title screen
+========================= */
 
 #title-screen {
   align-items: center;
@@ -103,7 +112,9 @@ body {
   font-size: 12px;
 }
 
-/* buttons */
+/* =========================
+   buttons
+========================= */
 
 button,
 select {
@@ -135,7 +146,9 @@ button:active {
   transform: scale(0.98);
 }
 
-/* options */
+/* =========================
+   options
+========================= */
 
 #options-screen {
   align-items: center;
@@ -176,17 +189,19 @@ select {
   padding: 8px 12px;
 }
 
-/* game */
+/* =========================
+   game
+========================= */
 
 #game-screen {
-  display: none;
+  display: flex;
   flex-direction: column;
   padding: 16px;
   gap: 14px;
 }
 
-#game-screen.active {
-  display: flex;
+#game-screen.is-hidden {
+  display: none !important;
 }
 
 .game-header {
@@ -206,7 +221,9 @@ select {
   font-size: 13px;
 }
 
-/* main layout */
+/* =========================
+   main layout
+========================= */
 
 .game-layout {
   width: 100%;
@@ -220,7 +237,9 @@ select {
   align-items: start;
 }
 
-/* side panels */
+/* =========================
+   side panels
+========================= */
 
 .sidebar,
 .build-panel {
@@ -279,7 +298,9 @@ select {
   line-height: 1.45;
 }
 
-/* city section */
+/* =========================
+   city section
+========================= */
 
 .city-section {
   min-width: 0;
@@ -304,7 +325,9 @@ select {
   font-size: 12px;
 }
 
-/* IMPORTANT GRID */
+/* =========================
+   city grid
+========================= */
 
 .city-grid {
   position: relative;
@@ -324,7 +347,9 @@ select {
   background: #ccc;
 }
 
-/* individual tile */
+/* =========================
+   individual tile
+========================= */
 
 .tile {
   position: relative;
@@ -344,9 +369,14 @@ select {
   border-radius: 0;
 
   background: transparent;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* terrain */
+/* =========================
+   terrain
+========================= */
 
 .terrain-image {
   position: absolute;
@@ -362,9 +392,13 @@ select {
 
   pointer-events: none;
   user-select: none;
+
+  z-index: 1;
 }
 
-/* buildings */
+/* =========================
+   buildings
+========================= */
 
 .building-image {
   position: absolute !important;
@@ -380,8 +414,6 @@ select {
 
   object-fit: contain !important;
 
-  transform: translate(-50%, -50%);
-
   display: block;
 
   pointer-events: none;
@@ -390,7 +422,30 @@ select {
   z-index: 3;
 }
 
-/* roads */
+/* =========================
+   road
+========================= */
+
+.building-image[src*="road.png"] {
+  position: absolute !important;
+
+  left: 0 !important;
+  top: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  object-fit: fill !important;
+
+  transform: none !important;
+
+  z-index: 2;
+}
+
+/* kept for compatibility if road-image is ever used */
 
 .road-image {
   position: absolute !important;
@@ -412,18 +467,20 @@ select {
   z-index: 2;
 }
 
-/* cars */
+/* =========================
+   cars
+========================= */
 
 .city-car {
   position: absolute !important;
 
   /*
     8% of the entire grid width.
-    Since the grid is 8 tiles wide, this is approximately
-    one tile's width.
+    since the grid is 8 tiles wide,
+    this is approximately one tile width.
   */
-  width: 8% !important;
 
+  width: 8% !important;
   height: auto !important;
 
   max-width: none !important;
@@ -441,13 +498,14 @@ select {
   transform-origin: center center;
 }
 
-/* build panel */
+/* =========================
+   build panel
+========================= */
 
-.build-option {
+.build-item {
   width: 100%;
 
   background: transparent;
-
   color: var(--text);
 
   text-align: left;
@@ -457,39 +515,60 @@ select {
   border-radius: 11px;
 
   margin-bottom: 4px;
+
+  transition:
+    background 0.15s ease,
+    outline 0.15s ease,
+    opacity 0.15s ease;
 }
 
-.build-option:hover {
+.build-item:hover {
   background: var(--surface-2);
 }
 
-.build-option.selected {
+.build-item.active {
   background: var(--surface-2);
   outline: 2px solid var(--accent);
 }
 
+.build-item.disabled {
+  opacity: 0.45;
+}
+
 .build-name {
   display: block;
+
   font-size: 14px;
   font-weight: 600;
 }
 
 .build-cost {
   display: block;
+
   color: var(--accent);
+
   font-size: 13px;
+
   margin-top: 3px;
 }
 
 .build-info {
   display: block;
+
   color: var(--muted);
+
   font-size: 11px;
+
   margin-top: 3px;
 }
 
+/* =========================
+   erase
+========================= */
+
 .erase-btn {
   width: 100%;
+
   margin-top: 8px;
 
   background: transparent;
@@ -501,26 +580,40 @@ select {
   padding: 10px;
 }
 
-.erase-btn.selected {
+.erase-btn:hover {
+  background: var(--surface-2);
+}
+
+.erase-btn.active {
   background: var(--surface-2);
   border-color: var(--danger);
 }
 
+/* =========================
+   controls
+========================= */
+
 .controls {
   margin-top: 15px;
   padding-top: 15px;
+
   border-top: 1px solid var(--border);
 
   color: var(--muted);
+
   font-size: 11px;
   line-height: 1.6;
 }
 
-/* messages */
+/* =========================
+   messages
+========================= */
 
 .game-message {
   min-height: 20px;
+
   color: var(--muted);
+
   font-size: 12px;
 }
 
@@ -529,11 +622,17 @@ select {
   font-weight: 600;
 }
 
-/* responsive */
+/* =========================
+   responsive
+========================= */
 
 @media (max-width: 1000px) {
   .game-layout {
-    grid-template-columns: 180px minmax(0, 1fr) 180px;
+    grid-template-columns:
+      180px
+      minmax(0, 1fr)
+      180px;
+
     gap: 12px;
   }
 
@@ -544,6 +643,11 @@ select {
 }
 
 @media (max-width: 760px) {
+  #title-screen,
+  #options-screen {
+    padding: 20px;
+  }
+
   .title-layout {
     grid-template-columns: 1fr;
   }
@@ -577,6 +681,7 @@ select {
 @media (max-width: 450px) {
   #game-screen {
     padding: 9px;
+    gap: 10px;
   }
 
   .city-grid {
@@ -589,5 +694,19 @@ select {
 
   .city-section-header p {
     font-size: 11px;
+  }
+
+  .game-layout {
+    gap: 10px;
+  }
+
+  .sidebar,
+  .build-panel {
+    border-radius: 12px;
+    padding: 11px;
+  }
+
+  .title-left h1 {
+    letter-spacing: -3px;
   }
 }
