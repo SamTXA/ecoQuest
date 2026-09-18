@@ -716,15 +716,6 @@ function handleTileClick(index) {
   }
 
 
-  if (
-    state.terrain[index] === "water"
-  ) {
-
-    $("message").textContent =
-      t("water");
-
-    return;
-  }
 
 
   if (state.tiles[index]) {
