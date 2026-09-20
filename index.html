@@ -1,332 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f5f7">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ecoQuest</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="app">
-
-  <!-- title screen -->
+  <!-- ==================== TITLE SCREEN ==================== -->
   <section id="title-screen" class="screen">
-  <div class="start-menu">
-
-    <div class="start-logo">
-      <h1>ecoQuest</h1>
-      <p>town building simulator</p>
-    </div>
-
-    <div class="start-menu-buttons">
-      <button id="start-btn" class="primary-btn">start</button>
-      <button id="cover-options-btn" class="secondary-btn">options</button>
-    </div>
-
-    <div class="start-version">
-      alpha 0.2
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- options -->
-  <section id="options-screen" class="screen is-hidden">
-
-    <div class="options-page">
-
-      <button id="options-back" class="text-button">
-        ‹ back
-      </button>
-
-      <h2 id="options-title">
-        options
-      </h2>
-
-      <div class="settings-card">
-
-        <div class="setting-row">
-          <div>
-            <b id="language-label">language</b>
-            <span id="language-help">
-              choose your language
-            </span>
-          </div>
-
-          <select id="language-select">
-            <option value="en">english</option>
-            <option value="id">indonesian</option>
-          </select>
-        </div>
-
-
-        <div class="setting-row">
-          <div>
-            <b id="theme-label">appearance</b>
-            <span id="theme-help">
-              choose light or dark mode
-            </span>
-          </div>
-
-          <select id="theme-select">
-            <option value="light">light</option>
-            <option value="dark">dark</option>
-          </select>
-        </div>
-
+    <div class="start-panel">
+      <div class="start-logo">
+        <h1>ecoQuest</h1>
+        <p id="start-subtitle">town building simulator</p>
+        <p id="start-description">
+          build a sustainable city while keeping pollution under control.
+        </p>
       </div>
 
-    </div>
+      <div class="start-buttons">
+        <button id="start-btn" class="primary-btn">start</button>
+        <button id="cover-options-btn" class="secondary-btn">options</button>
+      </div>
 
+      <div class="version">alpha 0.4</div>
+    </div>
   </section>
 
 
-  <!-- game -->
-  <section id="game-screen" class="is-hidden">
+  <!-- ==================== OPTIONS SCREEN ==================== -->
+  <section id="options-screen" class="screen is-hidden">
+    <div class="options-panel">
+      <h1 id="options-title">options</h1>
 
-    <header class="gamebar">
-
-      <div class="brand">
-        <b>ecoquest</b>
-        <span id="turn-label">turn 0</span>
+      <div class="option-row">
+        <label for="language-select" id="language-label">language</label>
+        <select id="language-select">
+          <option value="en">english</option>
+          <option value="id">indonesian</option>
+        </select>
       </div>
 
-      <div class="gamebar-actions">
-
-        <button
-          id="game-options-btn"
-          class="round-button"
-          aria-label="options"
-        >
-          ⚙
-        </button>
-
-        <button
-          id="restart-btn"
-          class="umg-button small secondary"
-        >
-          restart
-        </button>
-
+      <div class="option-row">
+        <label for="theme-select" id="theme-label">theme</label>
+        <select id="theme-select">
+          <option value="light">light</option>
+          <option value="dark">dark</option>
+        </select>
       </div>
 
+      <button id="options-back" class="secondary-btn">back</button>
+    </div>
+  </section>
+
+
+  <!-- ==================== GAME SCREEN ==================== -->
+  <section id="game-screen" class="screen is-hidden">
+
+    <header class="game-header">
+      <div class="game-title">
+        <h1>ecoQuest</h1>
+        <span>alpha 0.4</span>
+      </div>
+
+      <div class="header-buttons">
+        <button id="game-options-btn" class="small-btn">options</button>
+        <button id="restart-btn" class="small-btn">restart</button>
+      </div>
     </header>
 
 
-    <main class="game">
+    <main class="game-layout">
 
-      <!-- left sidebar -->
+      <!-- STATS -->
       <aside class="sidebar">
 
-        <section class="umg-card stats-card">
+        <div class="panel stats-panel">
+          <h2 id="stats-title">city stats</h2>
 
-          <div class="card-title" id="stats-title">
-            city statistics
+          <div class="stat">
+            <div class="stat-top">
+              <span id="money-label">money</span>
+              <strong id="money">$1,000</strong>
+            </div>
+            <div class="bar">
+              <div id="money-fill" class="bar-fill"></div>
+            </div>
           </div>
 
-          <div class="stat-row">
-            <span id="money-label">money</span>
-            <b id="money">$1,000</b>
+          <div class="stat">
+            <div class="stat-top">
+              <span id="population-label">population</span>
+              <strong id="population">0</strong>
+            </div>
+            <div class="bar">
+              <div id="population-fill" class="bar-fill"></div>
+            </div>
           </div>
 
-          <div class="progress">
-            <i id="money-fill"></i>
+          <div class="stat">
+            <div class="stat-top">
+              <span id="income-label">income</span>
+              <strong id="income">$0</strong>
+            </div>
+            <div class="bar">
+              <div id="income-fill" class="bar-fill"></div>
+            </div>
           </div>
 
-
-          <div class="stat-row">
-            <span id="population-label">population</span>
-            <b id="population">0</b>
+          <div class="stat">
+            <div class="stat-top">
+              <span id="pollution-label">pollution</span>
+              <strong id="pollution">0</strong>
+            </div>
+            <div class="bar">
+              <div id="pollution-fill" class="bar-fill"></div>
+            </div>
           </div>
 
-
-          <div class="stat-row">
-            <span id="income-label">income / turn</span>
-            <b id="income">$0</b>
+          <div class="stat">
+            <div class="stat-top">
+              <span id="happiness-label">happiness</span>
+              <strong id="happiness">50</strong>
+            </div>
+            <div class="bar">
+              <div id="happiness-fill" class="bar-fill"></div>
+            </div>
           </div>
 
-
-          <div class="stat-row">
-            <span id="pollution-label">pollution</span>
-            <b id="pollution">0</b>
+          <div class="turn-display">
+            <span id="turn-label">turn</span>
+            <strong id="turn">0</strong>
           </div>
-
-          <div class="progress">
-            <i id="pollution-fill"></i>
-          </div>
+        </div>
 
 
-          <div class="stat-row">
-            <span id="happiness-label">happiness</span>
-            <b id="happiness">50</b>
-          </div>
-
-          <div class="progress">
-            <i id="happiness-fill"></i>
-          </div>
-
-        </section>
-
-
-        <section class="umg-card objective">
-
-          <div class="card-title" id="objective-title">
-            objective
-          </div>
-
+        <div class="panel objective-panel">
+          <h2 id="objective-title">objective</h2>
           <p id="objective-text">
-            reach 50 population while keeping pollution under control.
+            reach 50 population while keeping pollution at 20 or below.
           </p>
+        </div>
 
-        </section>
+
+        <div class="panel controls-panel">
+          <h2 id="controls-title">controls</h2>
+          <p id="control-select">click a building, then click a tile</p>
+          <p id="control-rotate"><b>r</b> rotate</p>
+          <p id="control-erase"><b>e</b> erase mode</p>
+          <p id="control-shortcuts"><b>1-5</b> select buildings</p>
+        </div>
 
       </aside>
 
 
-      <!-- city -->
-      <section class="city-area">
+      <!-- CITY -->
+      <section class="city-section">
 
-        <div class="city-heading">
-
-          <div>
-            <h2 id="city-name">
-              your city
-            </h2>
-
-            <span id="city-help">
-              select a building, then click a tile.
-            </span>
+        <div class="city-top">
+          <div id="message" class="message">
+            build your city.
           </div>
 
-          <button
-            id="next-turn-btn"
-            class="umg-button primary"
-          >
+          <button id="next-turn-btn" class="primary-btn next-turn">
             next turn
           </button>
-
         </div>
 
-
-        <div
-          id="city-grid"
-          class="city-grid"
-          aria-label="city map"
-        ></div>
-
-
-        <div
-          id="message"
-          class="message"
-          aria-live="polite"
-        ></div>
+        <div id="city-grid" class="city-grid"></div>
 
       </section>
 
 
-      <!-- build panel -->
-      <aside class="build-panel">
+      <!-- BUILD PANEL -->
+      <aside class="build-panel panel">
 
-        <section class="umg-card">
+        <h2 id="build-title">build</h2>
 
-          <div class="card-title" id="build-title">
-            build
-          </div>
+        <div class="build-grid">
 
-
-          <div class="build-list">
-
-            <button
-              class="build-item"
-              data-building="house"
-            >
-              <span>
-                <b id="house-name">house</b>
-                <em id="house-cost">$100</em>
-                <small id="house-info">
-                  +5 population · +15 income
-                </small>
-              </span>
-            </button>
-
-
-            <button
-              class="build-item"
-              data-building="tree"
-            >
-              <span>
-                <b id="tree-name">tree</b>
-                <em id="tree-cost">$75</em>
-                <small id="tree-info">
-                  −5 pollution · +10 happiness
-                </small>
-              </span>
-            </button>
-
-
-            <button
-              class="build-item"
-              data-building="factory"
-            >
-              <span>
-                <b id="factory-name">factory</b>
-                <em id="factory-cost">$300</em>
-                <small id="factory-info">
-                  +2 population · +40 income
-                </small>
-              </span>
-            </button>
-
-
-            <button
-              class="build-item"
-              data-building="solar"
-            >
-              <span>
-                <b id="solar-name">solar plant</b>
-                <em id="solar-cost">$250</em>
-                <small id="solar-info">
-                  −10 pollution · +8 happiness
-                </small>
-              </span>
-            </button>
-
-
-            <button
-              class="build-item"
-              data-building="road"
-            >
-              <span>
-                <b id="road-name">road</b>
-                <em id="road-cost">$50</em>
-                <small id="road-info">
-                  connect your city
-                </small>
-              </span>
-            </button>
-
-          </div>
-
-
-          <button
-            id="erase-btn"
-            class="danger-button"
-          >
-            erase building
+          <button class="build-item" data-building="house">
+            <span class="build-name" id="house-name">house</span>
+            <span class="build-cost">$100</span>
+            <span class="build-stats">+5 pop · +2 pollution · +4 happiness · +15 income</span>
           </button>
 
-          <div class="controls-help">
-            <b>controls</b>
-            <span>r · rotate building</span>
-            <span>e · erase mode</span>
-            <span>1–5 · select building</span>
-          </div>
+          <button class="build-item" data-building="tree">
+            <span class="build-name" id="tree-name">tree</span>
+            <span class="build-cost">$75</span>
+            <span class="build-stats">-5 pollution · +10 happiness</span>
+          </button>
 
-        </section>
+          <button class="build-item" data-building="factory">
+            <span class="build-name" id="factory-name">factory</span>
+            <span class="build-cost">$300</span>
+            <span class="build-stats">+2 pop · +15 pollution · -5 happiness · +40 income</span>
+          </button>
+
+          <button class="build-item" data-building="solar">
+            <span class="build-name" id="solar-name">solar</span>
+            <span class="build-cost">$250</span>
+            <span class="build-stats">+1 pop · -10 pollution · +8 happiness · +20 income</span>
+          </button>
+
+          <button class="build-item" data-building="road">
+            <span class="build-name" id="road-name">road</span>
+            <span class="build-cost">$50</span>
+            <span class="build-stats">connects your city</span>
+          </button>
+
+        </div>
+
+        <button id="erase-btn" class="erase-btn">erase</button>
 
       </aside>
 
@@ -334,9 +221,64 @@
 
   </section>
 
-</div>
 
-<script src="script.js" defer></script>
+  <!-- ==================== WIN SCREEN ==================== -->
+  <section id="win-screen" class="screen is-hidden">
+    <div class="win-panel">
 
+      <div class="win-heading">
+        <h1 id="win-title">city objective reached.</h1>
+        <p id="win-subtitle">
+          your city reached the environmental objective.
+        </p>
+      </div>
+
+      <div class="final-stats">
+
+        <div class="final-stat">
+          <span id="final-money-label">money</span>
+          <strong id="final-money">$0</strong>
+        </div>
+
+        <div class="final-stat">
+          <span id="final-population-label">population</span>
+          <strong id="final-population">0</strong>
+        </div>
+
+        <div class="final-stat">
+          <span id="final-income-label">income / turn</span>
+          <strong id="final-income">$0</strong>
+        </div>
+
+        <div class="final-stat">
+          <span id="final-pollution-label">pollution</span>
+          <strong id="final-pollution">0</strong>
+        </div>
+
+        <div class="final-stat">
+          <span id="final-happiness-label">happiness</span>
+          <strong id="final-happiness">0</strong>
+        </div>
+
+        <div class="final-stat">
+          <span id="final-turns-label">turns</span>
+          <strong id="final-turns">0</strong>
+        </div>
+
+      </div>
+
+      <p id="final-objective" class="final-objective">
+        population ≥ 50 · pollution ≤ 20
+      </p>
+
+      <button id="win-restart-btn" class="primary-btn">
+        restart
+      </button>
+
+    </div>
+  </section>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
