@@ -268,20 +268,24 @@ function applyLanguage() {
   setText("final-objective", "finalObjective");
   setText("win-restart-btn", "restart");
 
-  // update the currently displayed message
-  if (state.erase) {
-    $("message").textContent =
-      `${t("erase")} ${t("selected")}`;
-  } else if (state.selected) {
-    $("message").textContent =
-      `${t(state.selected)} ${t("selected")}`;
-  } else {
-    $("message").textContent =
-      t("buildMessage");
-  }
-
+  // update stats FIRST
   updateStats();
-}
+
+  // update message safely
+  const message = $("message");
+
+  if (message) {
+    if (state.erase) {
+      message.textContent =
+        `${t("erase")} ${t("selected")}`;
+    } else if (state.selected) {
+      message.textContent =
+        `${t(state.selected)} ${t("selected")}`;
+    } else {
+      message.textContent =
+        t("buildMessage");
+    }
+  }
 }
 
 
