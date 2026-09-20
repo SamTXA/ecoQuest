@@ -210,19 +210,23 @@ function setText(id, key) {
 function applyLanguage() {
   document.documentElement.lang = language;
 
+  // title screen
   setText("start-subtitle", "startSubtitle");
   setText("start-description", "startDescription");
   setText("start-btn", "start");
   setText("cover-options-btn", "options");
 
+  // options
   setText("options-title", "options");
   setText("language-label", "language");
   setText("theme-label", "theme");
   setText("options-back", "back");
 
+  // game header
   setText("game-options-btn", "options");
   setText("restart-btn", "restart");
 
+  // stats
   setText("stats-title", "statsTitle");
   setText("money-label", "money");
   setText("population-label", "population");
@@ -231,29 +235,30 @@ function applyLanguage() {
   setText("happiness-label", "happiness");
   setText("turn-label", "turn");
 
+  // objective
   setText("objective-title", "objectiveTitle");
   setText("objective-text", "objective");
 
+  // controls
   setText("controls-title", "controlsTitle");
   setText("control-select", "controlSelect");
   setText("control-rotate", "controlRotate");
   setText("control-erase", "controlErase");
   setText("control-shortcuts", "controlShortcuts");
 
+  // build panel
   setText("build-title", "buildTitle");
-
   setText("house-name", "house");
   setText("tree-name", "tree");
   setText("factory-name", "factory");
   setText("solar-name", "solar");
   setText("road-name", "road");
-
   setText("erase-btn", "erase");
   setText("next-turn-btn", "nextTurn");
 
+  // win screen
   setText("win-title", "win");
   setText("win-subtitle", "winSubtitle");
-
   setText("final-money-label", "finalMoney");
   setText("final-population-label", "finalPopulation");
   setText("final-income-label", "finalIncome");
@@ -263,11 +268,20 @@ function applyLanguage() {
   setText("final-objective", "finalObjective");
   setText("win-restart-btn", "restart");
 
-  updateStats();
-
-  if (!state.selected && !state.erase) {
-    $("message").textContent = t("buildMessage");
+  // update the currently displayed message
+  if (state.erase) {
+    $("message").textContent =
+      `${t("erase")} ${t("selected")}`;
+  } else if (state.selected) {
+    $("message").textContent =
+      `${t(state.selected)} ${t("selected")}`;
+  } else {
+    $("message").textContent =
+      t("buildMessage");
   }
+
+  updateStats();
+}
 }
 
 
